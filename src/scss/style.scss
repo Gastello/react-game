@@ -1,0 +1,79 @@
+@import "null_style.scss";
+/*-------------------------------FONTS-----------------------------------*/
+//&display=swap&subset=cyrillic-ext
+@import "fonts.scss";
+
+/*-------------------------DEFAULT FONT-----------------------------*/
+$fontFamily: "";
+/*-------------------------------VARIABLES-------------------------------*/
+$paddingContainer: 15;
+$maxWidthContainer: 960 + $paddingContainer * 2;
+
+$md1: $maxWidthContainer + $paddingContainer;
+$md2: 991.98px;
+$md3: 767.98px;
+$md4: 479.98px;
+
+/*
+   @media (max-width: $md2) {
+   }
+   @media (max-width: $md3) {
+   }
+   @media (max-width: $md4) {
+   }
+*/
+/*--------------------------CONTENT WRAPPERS------------------------------*/
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: $maxWidthContainer + px;
+  margin: 0 auto;
+  padding: 0 $paddingContainer + px;
+}
+
+.page {
+  flex: 1 1 100%;
+}
+
+/*------------------------------HEADER------------------------------------*/
+@import "header.scss";
+/*-------------------------------BEM-BLOCKS-------------------------------*/
+
+/*--------------------------------------------------------------------*/
+.moves {
+  padding: 30px 0;
+  background-color: rgb(0, 115, 255);
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+.battleboard {
+  padding: 10px;
+  background-color: rgb(10, 72, 147);
+  margin-bottom: 10px;
+  // .battleboard__cell
+  &__cell {
+    background-color: rgb(10, 72, 147);
+    padding: 2px 6px;
+    color: white;
+    font-weight: 500;
+    box-shadow: inset 0px 0px 2px rgba(255, 255, 255, 0.475);
+  }
+  // .battleboard__button
+  &__button {
+    padding: 10px;
+    background-color: rgb(0, 115, 255);
+    color: white;
+    font-weight: 500;
+  }
+}

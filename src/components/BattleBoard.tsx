@@ -8,9 +8,9 @@ type CellProps = {
 };
 const Cell = ({ value, onClick, x, y }: CellProps) => {
   return (
-    <button
+    <button className="battleboard__cell"
       onClick={() => {
-        onClick(x, y);
+        onClick(y, x);
       }}
       type="button"
     >
@@ -20,21 +20,20 @@ const Cell = ({ value, onClick, x, y }: CellProps) => {
 };
 type BattleBoardProps = {
   matrix: number[][];
+  onFire: (y: number, x:number)=>void;
 };
-export const BattleBoard = ({ matrix }: BattleBoardProps) => {
+export const BattleBoard = ({ matrix, onFire }: BattleBoardProps) => {
   return (
-    <div>
+    <div className="battleboard">
       {matrix.map((array, y) => {
         return (
-          <div key={y}>
+          <div className="battleboard__line" key={y}>
             {array.map((el, x) => {
               return (
                 <Cell
                   key={x}
                   value={el}
-                  onClick={(y, x) => {
-                    console.log(`${x}${y} clicked!`);
-                  }}
+                  onClick={onFire}
                   x={x}
                   y={y}
                 />
